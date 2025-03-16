@@ -1,12 +1,13 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
-const response = document.getElementById("response");
 
+// Redirect on "Yes" click
 yesBtn.addEventListener("click", () => {
     window.location.href = "love.html";
 });
 
-noBtn.addEventListener("mouseover", () => {
+// Function to move the "No" button randomly
+function moveNoButton() {
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
 
@@ -23,4 +24,13 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.position = "absolute";
     noBtn.style.left = `${newX}px`;
     noBtn.style.top = `${newY}px`;
-});
+}
+
+// Apply different event listeners based on device
+if ("ontouchstart" in window) {
+    // Mobile: Move on touch
+    noBtn.addEventListener("touchstart", moveNoButton);
+} else {
+    // PC: Move on hover
+    noBtn.addEventListener("mouseover", moveNoButton);
+}
