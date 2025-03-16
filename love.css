@@ -29,10 +29,23 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-h1 {
-    font-size: 3em;
-}
+@keyframes shake {
+    0%, 100% { transform: translate(-50%, -50%) rotate(0); }
+    25% { transform: translate(-50%, -50%) rotate(-2deg); }
+    50% { transform: translate(-50%, -50%) rotate(2deg); }
+    75% { transform: translate(-50%, -50%) rotate(-2deg); }
+  }
+  
+  h1 {
+      font-size: 1.5em;
+      color: pink;
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: shake 0.5s ease-in-out infinite;
+  }
+  
 
-p {
-    font-size: 1.5em;
-}
+
+  
